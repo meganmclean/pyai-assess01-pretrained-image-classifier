@@ -5,9 +5,9 @@ from torch.autograd import Variable
 import torchvision.models as models
 from torch import __version__
 
-resnet18 = models.resnet18(pretrained=True)
-alexnet = models.alexnet(pretrained=True)
-vgg16 = models.vgg16(pretrained=True)
+resnet18 = models.resnet18(weights=models.ResNet18_Weights.IMAGENET1K_V1)
+alexnet = models.alexnet(weights=models.AlexNet_Weights.IMAGENET1K_V1)
+vgg16 = models.vgg16(weights=models.VGG16_Weights.IMAGENET1K_V1)
 
 models = {'resnet': resnet18, 'alexnet': alexnet, 'vgg': vgg16}
 
