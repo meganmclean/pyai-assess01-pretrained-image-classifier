@@ -70,15 +70,14 @@ def print_results(results_dic, results_stats_dic, model,
     print("{:<30s}: {:>d}".format("Number of 'Not-a' Dog Images", results_stats_dic["n_notdogs_img"]))
     print("")
 
-    # percentage statistics    
+    # Percentage statistics    
     for key in results_stats_dic:
         if key[0] == "p":
             label = " ".join(key.replace("pct", "%").replace("notdogs", "'Not-a' Dog").split("_"))
             print("{:<30s}: {:>0.2f}".format(label.title(), results_stats_dic[key]))
 
     # Incorrect dog/not a dog classification
-    if print_incorrect_dogs and (
-            results_stats_dic["n_correct_dogs"] + results_stats_dic["n_correct_notdogs"] != results_stats_dic["n_images"]):
+    if print_incorrect_dogs and (results_stats_dic["n_correct_dogs"] + results_stats_dic["n_correct_notdogs"] != results_stats_dic["n_images"]):
         print("\nIncorrect dog classifications:")
         for key in results_dic:
             if sum(results_dic[key][3:]) == 1:
