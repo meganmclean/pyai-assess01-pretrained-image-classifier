@@ -1,0 +1,1 @@
+# pyai-assess01-pretrained-image-classifier
