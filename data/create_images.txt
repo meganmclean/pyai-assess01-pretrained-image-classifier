@@ -18,6 +18,6 @@ Answer: Yes.
 4. Based upon your answers for questions 1. - 3. above, select the model architecture that you feel did the best at classifying the four uploaded images. Describe why you selected that model architecture as the best on uploaded image classification.
 
 Answer: Both the VGG and ResNet models classified all four images correctly.
-So, if basing a decision on the results of the classification of the uploaded image data set only, either would suffice. 
+So, if basing a decision on the results of the classification of the 4 uploaded images, either would suffice. 
 It should be noted that ResNet was significantly faster than VGG (~113ms vs ~510ms). So, if speed is important, ResNet may be the better choice.
 If taking the larger data set into consideration, the VGG model is the better choice provided accuracy is more important than speed.

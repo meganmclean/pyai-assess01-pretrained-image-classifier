@@ -96,7 +96,6 @@ def main():
         f"{str(int((tot_time % 3600) % 60)).zfill(2)}"
     )
 
-
 # Call to main function to run the program
 if __name__ == "__main__":
     main()
