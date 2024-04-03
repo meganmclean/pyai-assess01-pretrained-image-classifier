@@ -4,7 +4,7 @@
 #
 # PROGRAMMER:   Megan McLean
 # DATE CREATED: 02/04/2024
-# REVISED DATE:
+# REVISED DATE: 03/04/2024
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from
 #          the image's filename. This function inputs:
 #           - The Image Folder as image_dir within get_pet_labels function and
@@ -19,7 +19,6 @@
 # Imports python modules
 from os import listdir
 
-
 def get_pet_labels(image_dir) -> dict:
     """
     Creates a dictionary of pet labels (results_dic) based upon the filenames
@@ -30,27 +29,25 @@ def get_pet_labels(image_dir) -> dict:
     and with leading and trailing whitespace characters stripped from them.
     (ex. filename = 'Boston_terrier_02259.jpg' Pet label = 'boston terrier')
     Parameters:
-     image_dir - The (full) path to the folder of images that are to be
-                 classified by the classifier function (string)
+        image_dir - The (full) path to the folder of images that are to be
+                    classified by the classifier function (string)
     Returns:
-      results_dic - Dictionary with 'key' as image filename and 'value' as a
-      List. The list contains for following item:
-         index 0 = pet image label (string)
+        results_dic - Dictionary with 'key' as image filename and 'value' as a
+        List. The list contains for following item:
+            index 0 = pet image label (string)
     """
 
     filename_list = listdir(image_dir)
     results_dic = dict()
 
     for filename in filename_list:
+        if filename.startswith("."):
+            continue
+        
         key = filename
-
         no_ext = filename.split(".")[0].lower()
         words = no_ext.split("_")
-        label = ""
-        for word in words:
-            if word.isalpha():
-                label += word + " "
-        value = [label.lower().strip()]
-        results_dic[key] = value
+        label = " ".join([word for word in words if word.isalpha()])
+        results_dic[key] = [label.lower().strip()]
 
     return results_dic
